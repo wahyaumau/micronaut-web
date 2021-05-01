@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: micronautWeb
+  server:
+    port: 8090
