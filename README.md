@@ -1,18 +1,37 @@
-## Micronaut 2.5.0 Documentation
+# Micronaut Web
 
-- [User Guide](https://docs.micronaut.io/2.5.0/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.5.0/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.5.0/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+## Installation
+```bash
+gradlew clean
+gradlew build
+```
 
-## Feature lombok documentation
+## Build Docker Image
+```bash
+docker build . -t <dockerhub_username>/micronaut-web
+```
 
-- [Micronaut Project Lombok documentation](https://docs.micronaut.io/latest/guide/index.html#lombok)
+## Run Docker Image (Create Container)
+```bash
+docker run --rm --name micronaut-web-container -p 8090:8090 <dockerhub_username>/micronaut-web:latest
+```
 
-- [https://projectlombok.org/features/all](https://projectlombok.org/features/all)
+## Login to Dockerhub
+```bash
+docker login --username=<dockerhub_username>
+```
 
-## Feature http-client documentation
+## Push Image to Dockerhub
+```bash
+docker push <dockerhub_username>/micronaut-web
+```
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+## Deploy Docker Image from Dockerhub to Kubernetes Cluster
+```bash
+kubectl apply -f k8s-deployment.yml
+```
 
+## Access Kubernetes Service from Browser
+```bash
+minikube service micronaut-web-service
+```
