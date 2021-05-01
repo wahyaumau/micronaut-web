@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micronaut-web-deployment
+  labels:
+    name: micronaut-web-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: micronaut-web-pod
+  template:
+    metadata:
+      name: micronaut-web-pod
+      labels:
+        name: micronaut-web-pod
+    spec:
+      containers:
+        - name: micronaut-web
+          image: 245547/micronaut-web
+          ports:
+            - containerPort: 8090
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: micronaut-web-service
+spec:
+  type: NodePort
+  selector:
+    name: micronaut-web-pod
+  ports:
+    - port: 8091
+      targetPort: 8090
+      nodePort: 30011
