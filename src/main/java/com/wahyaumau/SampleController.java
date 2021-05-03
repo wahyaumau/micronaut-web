@@ -16,4 +16,9 @@ public class SampleController {
         return new ApiResponse(200, "on");
     }
 
+    @Get("/goodbye")
+    public ApiResponse goodbye(){
+        return new ApiResponse(200, "goodbyey");
+    }
+
 }
