@@ -1,4 +1,5 @@
 # Micronaut Web
+Template project for micronaut, docker, kubernetes
 
 ## Installation
 ```bash
